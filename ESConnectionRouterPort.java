@@ -6,7 +6,7 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ESConnectionRouter {
+public class ESConnectionRouterPort {
     private static final int SERVER_PORT = 8080;
 
     private static final Map<String, Socket> connections = new HashMap<>();

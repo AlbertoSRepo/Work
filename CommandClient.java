@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class CommandClient {
     private static final String SERVER_HOST = "localhost";
-    private static final int SERVER_PORT = 4321;
+    private static final int SERVER_PORT = 8080;
 
     private static final List<String> availableConnections = new ArrayList<>();
 

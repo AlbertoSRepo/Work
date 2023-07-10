@@ -14,7 +14,7 @@ public class MultiConnectionRouter {
     public static void main(String[] args) {
         new MultiConnectionRouter().run();
     }
-
+    
     private void run() {
         new Thread(this::commandServer).start();
 

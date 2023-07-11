@@ -6,29 +6,35 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class EchoServer3 {
-    public static void main(String[] args) {
-        int port = 3333;
+public class EchoServerLine extends Thread {
+    private int port;
+
+    public EchoServerLine(int port) {
+        this.port = port;
+    }
+
+    @Override
+    public void run() {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
-            System.out.println("Server in ascolto sulla porta " + port);
+            System.out.println("Server listening on port " + port);
 
             while (true) {
                 try (Socket clientSocket = serverSocket.accept();
                      PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
                      BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))) {
 
-                    System.out.println("Connessione accettata da " + clientSocket.getRemoteSocketAddress());
+                    System.out.println("Accepted connection from " + clientSocket.getRemoteSocketAddress() + ":" + clientSocket.getPort());
                     String inputLine;
                     while ((inputLine = in.readLine()) != null) {
-                        System.out.println("Ricevuto dal client: " + inputLine);
+                        System.out.println("Received from client: " + inputLine);
                         out.println(inputLine);
                     }
                 } catch (Exception e) {
-                    System.out.println("Connessione interrotta: " + e.getMessage());
+                    System.out.println("Connection interrupted: " + e.getMessage());
                 }
             }
         } catch (Exception e) {
-            System.out.println("Errore del server: " + e.getMessage());
+            System.out.println("Server error: " + e.getMessage());
         }
     }
 }

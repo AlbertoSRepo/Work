@@ -8,7 +8,7 @@ import java.net.Socket;
 
 public class EchoServer1 {
     public static void main(String[] args) {
-        int port = 1234;
+        int port = 8080;
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             System.out.println("Server in ascolto sulla porta " + port);
 

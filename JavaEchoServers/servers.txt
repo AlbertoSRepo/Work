@@ -1,5 +1,5 @@
 PORT:
     EchoServer1:1234
     EchoServer2:2222
-    EchoServer3:3333
-    EchoServer4:4444
+    EchoServer3:8080
+    EchoServer4:8080
